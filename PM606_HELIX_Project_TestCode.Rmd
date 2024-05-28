@@ -1,0 +1,48 @@
+---
+title: 'PM606 Health Data Science Practicum (Summer 2024'
+subtitle: "HELIX Project Description"
+author: "David Conti and Jesse Goodrich"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    df_print: paged
+    code_folding: hide
+---
+
+```{css, echo=FALSE}
+pre {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+```
+
+```{r data setup, include=FALSE, echo=FALSE}
+library(knitr)
+library(summarytools) # for summarizing variables
+library(tidyverse)
+library(Biobase)
+
+options(knitr.table.format = "html")
+knitr::opts_chunk$set(echo = TRUE)
+
+# folder for analysis
+setwd("~/My Drive/Class/PM606_Data_Science_Practicum/2024/TestCodeFolder")
+work.dir <- getwd()
+
+# suppress warning messages for final rendering
+old.warn <- getOption("warn")
+options(warn=-1)
+
+```
+
+
+# Load Data
+```{r load data and coddebook, echo=TRUE}
+load(paste0(work.dir, "/../HELIX_data/HELIX.RData"))
+kable(codebook, align="c")
+
+```
+
