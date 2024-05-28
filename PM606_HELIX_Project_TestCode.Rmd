@@ -39,7 +39,7 @@ options(warn=-1)
 ```
 
 
-# Load Data
+# Load Data and create summary table
 ```{r load data and coddebook, echo=TRUE}
 load(paste0(work.dir, "/../HELIX_data/HELIX.RData"))
 kable(codebook, align="c")
