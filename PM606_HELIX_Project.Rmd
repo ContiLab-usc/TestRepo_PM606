@@ -29,7 +29,8 @@ options(knitr.table.format = "html")
 knitr::opts_chunk$set(echo = TRUE)
 
 # folder for analysis
-work.dir <- here::here()
+setwd("~/My Drive/Class/PM606_Data_Science_Practicum/2024/TestCodeFolder")
+work.dir <- getwd()
 
 # suppress warning messages for final rendering
 old.warn <- getOption("warn")
@@ -44,7 +45,7 @@ The Master of Science in Public Health Data Science at USC has a summer practicu
 ## HELIX Project Description:
 
 ```{r image-helix, echo=FALSE, message=FALSE, fig.align='center', fig.cap='', out.width='100%', out.width='100%'}
-knitr::include_graphics(paste0(work.dir, "/HELIX.png"))
+knitr::include_graphics(paste0(work.dir, "/../HELIX_data/HELIX.png"))
 ```
 
 Due to our ever-changing environment and habits, exposure to environmental contaminants is growing increasingly complex. The totality of environmental (non-genetic) exposures from conception until old age is defined as the ‘exposome’. The HELIX ‘early-life exposome’ approach involves combining all environmental hazards that mothers and children are exposed to, and linking this to the health, growth, and development of children.
@@ -56,7 +57,7 @@ To achieve this, HELIX uses six existing, prospective birth cohort studies in Eu
 For PM606 we will use subcohort of 1301 mother-child pairs to potentially examine multiple questions of interest related to environmental exposures, omic data and their impact on health.
 
 ```{r image-helix-data, echo=FALSE, message=FALSE, fig.align='center', fig.cap='', out.width='100%', out.width='100%'}
-knitr::include_graphics(paste0(work.dir, "/HELIX_Data.png"))
+knitr::include_graphics(paste0(work.dir, "/../HELIX_data/HELIX_Data.png"))
 ```
 
 <br>
@@ -155,7 +156,7 @@ Each person will produce one poster. Your poster should include:
 ## Data Description and Codebook
 
 ```{r load data and coddebook, echo=TRUE}
-load(paste0(work.dir, "/HELIX.RData"))
+load(paste0(work.dir, "/../HELIX_data/HELIX.RData"))
 kable(codebook, align="c")
 
 
@@ -208,7 +209,7 @@ summarytools::view(dfSummary(exposome[,names(exposome) %in% selectExposures], st
 First 10 rows and columns of the proteomic data
 
 ```{r proteomic data, echo=TRUE}
-load(paste0(work.dir, "/proteome.RData"))
+load(paste0(work.dir, "/../HELIX_data/proteome.RData"))
 kable(proteome.d[1:10,1:10], align="c", digits=2, format="pipe")
 
 
@@ -219,7 +220,7 @@ kable(proteome.d[1:10,1:10], align="c", digits=2, format="pipe")
 First 10 rows and columns of the metabolomic urine data
 
 ```{r metabolomic urine data, echo=TRUE}
-load(paste0(work.dir, "/metabol_urine.RData"))
+load(paste0(work.dir, "/../HELIX_data/metabol_urine.RData"))
 kable(metabol_urine.d[1:10,1:10], align="c", digits=2, format="pipe")
 
 
@@ -230,7 +231,7 @@ kable(metabol_urine.d[1:10,1:10], align="c", digits=2, format="pipe")
 First 10 rows and columns of the metabolomic serum data
 
 ```{r metabolomic serum data, echo=TRUE}
-load(paste0(work.dir, "/metabol_serum.RData"))
+load(paste0(work.dir, "/../HELIX_data/metabol_serum.RData"))
 kable(metabol_serum.d[1:10,1:10], align="c", digits=2, format="pipe")
 
 
@@ -241,7 +242,7 @@ kable(metabol_serum.d[1:10,1:10], align="c", digits=2, format="pipe")
 First 10 rows and columns of the genomic data
 
 ```{r genomic data, echo=TRUE}
-load(paste0(work.dir, "/genome.RData"))
+load(paste0(work.dir, "/../HELIX_data/genome.RData"))
 kable(G[1:10,1:10], align="c", digits=2, format="pipe")
 
 
